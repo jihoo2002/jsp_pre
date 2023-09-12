@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    <% //값을 얻어낼때 사용
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+  <%--  <% //값을 얻어낼때 사용
     /*
     
     내장객체 session 에서 데이터를 가져오는 메서드는 getAttribute()입니다.
@@ -21,7 +21,7 @@
     	
     
     %>
-    
+    --%> 
     
     
 <!DOCTYPE html>
@@ -31,16 +31,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	
+	<c:if test="${user_id == null }">
+		<script>
+			alert('로그인 하지 않은 유저는 접근할 수 없습니다.');
+			location.href ='session_login.jsp';
+		</script>
+	
+	</c:if>
+	
 	<h2>${user_id}님 환영합니다!</h2>
 
-	
+	<a href = "/JspBasic/session/login">로그아웃하기</a>
 </body>
 </html>
 
+
+<%-- 
 <% }%>
 
-
+--%>
 
 
 

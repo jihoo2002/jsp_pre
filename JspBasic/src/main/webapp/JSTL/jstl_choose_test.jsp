@@ -17,8 +17,10 @@
         나머지는 모두 F처리하시면 됩니다.
     --%>
 	<c:set var= "point" value = "${param.point}"/>
+	<!-- var는 맘대로 -->
 	
-	#점수: ${point}점<br>
+	
+	당신의 점수: <strong>${point}점</strong>
 	
 	<c:choose>
 	<c:when test="${point>100 }">
