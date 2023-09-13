@@ -9,7 +9,7 @@
 <body>
 	
 	<h2>게시글 등록 페이지</h2>
-	<form action="#" method="post">
+	<form action="/JspBasic/regist.board" method="post">
 		<input type = "text" name = "writer" placeholder="작성자"><br>
 		<input type = "text" name = "title" placeholder="글 제목"><br>
 		<textarea name= "content" rows="5" cols="30" placeholder="게시글 내용을 입력하세요."></textarea>
