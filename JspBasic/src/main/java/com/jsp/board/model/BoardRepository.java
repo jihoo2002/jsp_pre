@@ -45,4 +45,16 @@ public class BoardRepository {
 	public void delete(int bId) {
 		boardList.remove(bId-1);
 	}
+	//객체 검색 메서드
+	public List<BoardVO> search(String keyword) {
+		List<BoardVO> list1 =new ArrayList<>();
+		for(BoardVO v:boardList) {
+			if(v.getWriter().contains(keyword)) {
+				list1.add(v);
+			}
+		}
+		return list1;
+		
+		
+	}
 }

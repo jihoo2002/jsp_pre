@@ -23,19 +23,14 @@ public class UpdateService implements IBoardService {
 ////		BoardVO vo = new BoardVO(writer, title, content, updateTime);
 ////		
 //		
-		BoardVO vo = new BoardVO(
+				BoardVO vo = new BoardVO(
 				request.getParameter("writer"),
 				request.getParameter("title"),
 				request.getParameter("content"),
 				LocalDateTime.now()
 				);
-				
-				
-				
-				
 		
-		
-	BoardRepository.getInstance().update(vo,bId);
+				BoardRepository.getInstance().update(vo,bId);
 		
 	}
 

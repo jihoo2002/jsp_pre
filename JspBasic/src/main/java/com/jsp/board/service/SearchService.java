@@ -1,6 +1,6 @@
 package com.jsp.board.service;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,15 +8,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.jsp.board.model.BoardRepository;
 import com.jsp.board.model.BoardVO;
 
-public class DeleteService implements IBoardService {
+public class SearchService implements IBoardService {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		///삭제 되어야 함
-		int bId = Integer.parseInt(request.getParameter("bId"));
-		BoardRepository.getInstance().delete(bId);
+		String keyword =request.getParameter("keyword");
 		
-	
+		List<BoardVO> list=BoardRepository.getInstance().search(keyword);
+		request.setAttribute("boardList", list);
+		
 	}
+	
 
 }

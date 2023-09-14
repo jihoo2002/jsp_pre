@@ -1,3 +1,4 @@
+<%@page import="java.awt.geom.Path2D"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -13,6 +14,12 @@
 <body>
 		
 	<h2>게시글 목록</h2>
+	<c:choose>
+		<c:when test="${boardList.size() == 0}">
+	<!-- list는 틀 자체는 생성되어 있기에 그 안의 값이 없으면 ! -->
+	<h3>### 작성된 게시물이 하나도 없습니다 ###</h3>
+	</c:when>
+	<c:otherwise>
 	<table border="1">
 		<tr>
 			<th>번호</th>
@@ -47,9 +54,17 @@
 		</c:forEach>
 		
 	</table>
+	</c:otherwise>
+	</c:choose>
 	<br>
 	
+	<form action="/JspBasic/search.board">
+		<input type ="text" name = "keyword" placeholder="작성자 이름을 입력하세요.">
+		<input type = "submit" value ="검색">
+		</form>
+	
 	<a href= "/JspBasic/write.board">새 글 작성하기</a>
+	
 	
 	
 </body>

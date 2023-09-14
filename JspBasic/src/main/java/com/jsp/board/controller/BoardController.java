@@ -20,6 +20,7 @@ import com.jsp.board.service.GetListService;
 import com.jsp.board.service.IBoardService;
 import com.jsp.board.service.ModifyService;
 import com.jsp.board.service.RegistService;
+import com.jsp.board.service.SearchService;
 import com.jsp.board.service.UpdateService;
 
 
@@ -113,7 +114,7 @@ public class BoardController extends HttpServlet {
 				System.out.println("글 수정 요청이 들어옴");
 				sv = new UpdateService();
 				sv.execute(request, response);
-				response.sendRedirect("/JspBasic/content.board?bId=" + request.getParameter("boardNo"));
+				response.sendRedirect("/JspBasic/content.board?bId="+ request.getParameter("boardNo"));// 
 				break;
 				
 			case "delete":
@@ -121,6 +122,16 @@ public class BoardController extends HttpServlet {
 				sv = new DeleteService();
 				sv.execute(request, response);
 				response.sendRedirect("/JspBasic/list.board");
+				//목록 끌고와서 요청하고 case list를 불러옴
+				break;
+				
+			case "search":
+				System.out.println("글 검색 요청 들어옴");
+				sv = new SearchService();
+				sv.execute(request, response);
+				
+				dp = request.getRequestDispatcher("board/board_list.jsp");
+				dp.forward(request, response);
 				break;
 		}
 		
