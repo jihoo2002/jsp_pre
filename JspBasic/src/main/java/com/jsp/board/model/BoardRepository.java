@@ -22,7 +22,8 @@ public class BoardRepository {
 	
 	//게시글 등록 메서드 (메서드로 접근해야 함)
 	public void regist(BoardVO vo) {
-		boardList.add(vo);
+		 boardList.add(vo);
+	
 	}
 	
 	//전체 게시물(BoardList)을 담고 있는 리스트를 리턴
@@ -30,4 +31,18 @@ public class BoardRepository {
 		return boardList;
 	}
 	
+	//글 번호를 가지고 특정 게시물 객체를 리턴하는 메서드
+	public BoardVO getContent(int bId) {
+		return boardList.get(bId-1);
+	}
+	
+	//객체 수정 메서드 
+	public void update(BoardVO vo, int bId) {
+		boardList.set(bId-1, vo);
+	}
+	
+	//객체 삭제 메서드
+	public void delete(int bId) {
+		boardList.remove(bId-1);
+	}
 }

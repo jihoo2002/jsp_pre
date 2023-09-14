@@ -31,6 +31,7 @@
 			<tr>
 			<td>${status.count}</td>
 				<td>${b.writer}</td>
+				<!-- 여기서 writer는 getWriter임 -->
 				<td>
 				<a href= "/JspBasic/content.board?bId=${status.count}">${b.title}</a>
 				</td>
@@ -41,7 +42,7 @@
 				<fmt:formatDate value= "${parsedDateTime}" pattern="yyyy년 MM월 dd일 HH시 mm분"/> 
 				</td>
 				
-				<td>[삭제]</td>
+				<td><a href = "/JspBasic/delete.board?bId=${status.count}">[삭제]</a></td>
 			</tr>
 		</c:forEach>
 		
